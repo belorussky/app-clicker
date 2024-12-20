@@ -1,1 +1,1 @@
-# Lizzard Clicker!
+# App Clicker
