@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-const baseLevelScore = 25;
+const baseLevelScore = import.meta.env.VITE_BASE_LEVEL_SCORE;
 
 const levels = new Array(15)
   .fill(0)
