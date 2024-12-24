@@ -1,5 +1,5 @@
 <template>
-  <main class="game">
+  <main class="game" v-if="loaded">
     <div class="page">
       <RouterView />
     </div>
@@ -8,6 +8,24 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue'
 import { RouterView } from 'vue-router'
 import TheMenu from './components/TheMenu.vue'
+import { useAppStore } from '@/stores/app'
+import { useTelegram } from '@/services/telegram'
+
+const loaded = ref(false)
+const app = useAppStore()
+
+const { tg } = useTelegram()
+
+app.init().then(() => {
+  loaded.value = true
+})
+
+onMounted(() => {
+  tg.ready()
+  tg.expand()
+})
+
 </script>

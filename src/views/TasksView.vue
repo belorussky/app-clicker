@@ -14,13 +14,4 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted } from 'vue'
-import supabase from '@/services/supabase'
-
-// onMounted(async () => {
-  // supabase.from('tasks').select('*').then(({ data }) => {
-  //   console.log(data)
-  // })
-// })
-</script>
+<script setup></script>
