@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia'
+import debounce from 'lodash.debounce'
+import { updateScore } from '@/api/app'
 
+const debouncedUpdateScore = debounce(updateScore, 500)
 const baseLevelScore = import.meta.env.VITE_BASE_LEVEL_SCORE;
 
 const levels = new Array(15)
@@ -44,6 +47,7 @@ export const useScoreStore = defineStore('score', {
   actions: {
     add(score = 1) {
       this.score += score
+      debouncedUpdateScore(this.score)
     },
     setScore(score) {
       this.score = score;

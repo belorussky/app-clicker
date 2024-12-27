@@ -19,6 +19,8 @@ const app = useAppStore()
 
 const { tg } = useTelegram()
 
+const urlParams = new URLSearchParams(window.location.search)
+
 app.init().then(() => {
   loaded.value = true
 })
